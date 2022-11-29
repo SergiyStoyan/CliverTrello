@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <RepositoryUrl>https://github.com/sergiystoyan/CliverGoogleRoutines.git</RepositoryUrl>
+	  <PackageLicenseExpression>copyleft</PackageLicenseExpression>
+	  <Copyright>Sergiy Stoyan</Copyright>
+	  <Authors>Sergiy Stoyan</Authors>
+	  <Company>CliverSoft</Company>
+	  <Version>1.1.0</Version>
+	  <Title></Title>
+	  <PackageProjectUrl>https://github.com/sergiystoyan/CliverGoogleRoutines</PackageProjectUrl>
+	  <Description>	  </Description>
+	  <PackageTags>google API</PackageTags>
+	  <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	  <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+	  <Platforms>AnyCPU;x64;x86</Platforms>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<RootNamespace>Cliver</RootNamespace>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DocumentationFile>c:\Users\serge\Documents\_PROJECTS\CliverRoutines\CliverRoutines.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\CliverRoutines\CliverRoutines.csproj" />
+	</ItemGroup>
+
+</Project>
