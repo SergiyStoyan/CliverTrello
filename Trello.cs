@@ -69,7 +69,7 @@ namespace Cliver
             {
                 List<Type> ignoredExceptionTypes = new List<Type> {
                     typeof(System.Net.WebException)//internet connection problem 
-                    , typeof(Newtonsoft.Json.JsonReaderException) //it may sometimes happen: Unexpected character encountered while parsing value: R. Path '', line 0, position 0. [Newtonsoft.Json.JsonReaderException]
+                    //, typeof(Newtonsoft.Json.JsonReaderException) //it may sometimes happen: Unexpected character encountered while parsing value: R. Path '', line 0, position 0. [Newtonsoft.Json.JsonReaderException]
                 };
                 return ignoredExceptionTypes?.Find(a => e.GetType() == a) != null;
             }
@@ -85,7 +85,7 @@ namespace Cliver
 
         public JToken Get(string address, Dictionary<string, string> keys2value = null, Action<JToken> validate = null)
         {
-            //Log.Debug(Log.GetThisMethodInfo(address, keys2value));
+            Log.Debug(Log.GetThisMethodInfo(address, keys2value));
             webClient.QueryString.Clear();
             webClient.QueryString.Add("key", appKey);
             webClient.QueryString.Add("token", serverToken);
@@ -94,16 +94,17 @@ namespace Cliver
                     webClient.QueryString.Add(k, keys2value[k]);
             //webClient.Headers[System.Net.HttpRequestHeader.Authorization] = "OAuth oauth_consumer_key=\"" + appKey + "\", oauth_token=\"" + serverToken + "\"";
             return trelloTrier.Perform(() =>
-            {
-                string s = webClient.DownloadString(address);
-                Log.Debug("Response:\r\n" + s);
-                JToken t = JToken.Parse(s);
-                if (t == null)
-                    throw new System.Net.WebException("trello returned NULL result.");
-                validate?.Invoke(t);
-                return t;
-            }
-             );
+                {
+                    string s = webClient.DownloadString(address);
+                    Log.Debug("Response:\r\n" + s);
+                    if (!s.StartsWith("{") && !s.StartsWith("["))
+                        s = '\"' + s + '\"';
+                    JToken t = JToken.Parse(s);
+                    if (t == null)
+                        throw new System.Net.WebException("trello returned NULL result.");//seems to be server temporary error
+                    validate?.Invoke(t);
+                    return t;
+                });
         }
 
         public string Download(string address, string file)
