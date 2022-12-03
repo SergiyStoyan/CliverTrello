@@ -86,6 +86,7 @@ namespace Cliver
         public JToken Get(string address, Dictionary<string, string> keys2value = null, Action<JToken> validate = null)
         {
             Log.Debug(Log.GetThisMethodInfo(address, keys2value));
+
             webClient.QueryString.Clear();
             webClient.QueryString.Add("key", appKey);
             webClient.QueryString.Add("token", serverToken);
@@ -98,7 +99,11 @@ namespace Cliver
                     string s = webClient.DownloadString(address);
                     Log.Debug("Response:\r\n" + s);
                     if (!s.StartsWith("{") && !s.StartsWith("["))
+                    {
+                        if (s == "Response Timeout")
+                            throw new System.Net.WebException("trello returned: " + s);//seems to be server temporary error
                         s = '\"' + s + '\"';
+                    }
                     JToken t = JToken.Parse(s);
                     if (t == null)
                         throw new System.Net.WebException("trello returned NULL result.");//seems to be server temporary error

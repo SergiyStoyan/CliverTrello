@@ -15,7 +15,7 @@ namespace Cliver
     {
         public string GetTrelloBoardId(string boardName)
         {
-            Log.Inform(Log.GetThisMethodName() + "...");
+            Log.Debug(Log.GetThisMethodName() + "...");
 
             JToken o = Get("search", new Dictionary<string, string> { { "query", boardName } }
                 , (JToken t) =>
