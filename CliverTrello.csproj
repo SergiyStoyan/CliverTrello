@@ -3,16 +3,16 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	  <RepositoryUrl>https://github.com/sergiystoyan/CliverGoogleRoutines.git</RepositoryUrl>
+	  <RepositoryUrl>https://github.com/sergiystoyan/CliverTrello.git</RepositoryUrl>
 	  <PackageLicenseExpression>copyleft</PackageLicenseExpression>
 	  <Copyright>Sergiy Stoyan</Copyright>
 	  <Authors>Sergiy Stoyan</Authors>
 	  <Company>CliverSoft</Company>
 	  <Version>1.1.0</Version>
 	  <Title></Title>
-	  <PackageProjectUrl>https://github.com/sergiystoyan/CliverGoogleRoutines</PackageProjectUrl>
-	  <Description>	  </Description>
-	  <PackageTags>google API</PackageTags>
+	  <PackageProjectUrl>https://github.com/sergiystoyan/CliverTrello</PackageProjectUrl>
+	  <Description>Trello API routines</Description>
+	  <PackageTags>trello API</PackageTags>
 	  <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	  <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
