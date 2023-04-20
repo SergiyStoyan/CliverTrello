@@ -8,7 +8,7 @@
 	  <Copyright>Sergiy Stoyan</Copyright>
 	  <Authors>Sergiy Stoyan</Authors>
 	  <Company>CliverSoft</Company>
-	  <Version>1.1.0</Version>
+	  <Version>1.2.0</Version>
 	  <Title></Title>
 	  <PackageProjectUrl>https://github.com/sergiystoyan/CliverTrello</PackageProjectUrl>
 	  <Description>Trello API routines</Description>
@@ -29,11 +29,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\CliverRoutines\CliverRoutines.csproj" />
+	  <PackageReference Include="CliverRoutines" Version="6.34.2" />
 	</ItemGroup>
 
 </Project>
